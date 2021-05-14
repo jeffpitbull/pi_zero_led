@@ -41,14 +41,33 @@ def remap(value, min=0, max=180, new_min = 0, new_max = 7):
     int_value = int(value)
     return int((((int_value - min) * (new_max - new_min)) / (max - min)) + new_min)
 
+def reticle():
+    points = [
+        [8,5],
+        [7,5],
+        [9,4],
+        [6,4],
+        [9,3],
+        [6,3],
+        [8,2],
+        [7,2]
+    ]
 
-iterations = 0
-while iterations < 600:
-    angle_xz, angle_yz = get_inclination(sensor)
-    xz_pixel = remap(angle_xz, new_max=15)
-    yz_pixel = remap(angle_yz)
+    for point in points:
+        display.pixel(*point, 20)
+
+
+def run()
+
+    iterations = 0
+    while iterations < 600:
+        angle_xz, angle_yz = get_inclination(sensor)
+        xz_pixel = remap(angle_xz, new_max=15)
+        yz_pixel = remap(angle_yz)
+        display.fill(0)
+        display.pixel(xz_pixel, yz_pixel, 50)
+        print("XZ angle = {:6.2f}deg   YZ angle = {:6.2f}deg".format(angle_xz, angle_yz))
+        iterations += 1
+        time.sleep(0.05)
+
     display.fill(0)
-    display.pixel(xz_pixel, yz_pixel, 50)
-    print("XZ angle = {:6.2f}deg   YZ angle = {:6.2f}deg".format(angle_xz, angle_yz))
-    iterations += 1
-    time.sleep(0.05)

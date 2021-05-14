@@ -62,7 +62,7 @@ def run():
     iterations = 0
     while iterations < 600:
         angle_xz, angle_yz = get_inclination(sensor)
-        xz_pixel = remap(angle_xz, new_max=15)
+        xz_pixel = remap(angle_xz, new_min=15, new_max=0)
         yz_pixel = remap(angle_yz)
         reticle()
         display.pixel(xz_pixel, yz_pixel, 50)

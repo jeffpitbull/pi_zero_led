@@ -23,7 +23,7 @@ display = Display(i2c)
 display.sleep(True)  # turn display off while updating blink bits
 display.fill(0)
 
-print(display.__dict__)
+display.pixel(0, 0, 50)
 # for y in range(display.height):
 
 

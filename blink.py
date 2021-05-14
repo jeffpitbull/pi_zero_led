@@ -20,7 +20,6 @@ i2c = busio.I2C(board.SCL, board.SDA)
 
 display = Display(i2c)
 
-display.sleep(True)  # turn display off while updating blink bits
 display.fill(0)
 
 # draw a box on the display

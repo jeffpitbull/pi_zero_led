@@ -57,7 +57,7 @@ def reticle():
         display.pixel(*point, 20)
 
 
-def run()
+def run():
 
     iterations = 0
     while iterations < 600:

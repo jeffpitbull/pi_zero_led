@@ -64,7 +64,7 @@ def run():
         angle_xz, angle_yz = get_inclination(sensor)
         xz_pixel = remap(angle_xz, new_max=15)
         yz_pixel = remap(angle_yz)
-        display.fill(0)
+        reticle()
         display.pixel(xz_pixel, yz_pixel, 50)
         print("XZ angle = {:6.2f}deg   YZ angle = {:6.2f}deg".format(angle_xz, angle_yz))
         iterations += 1

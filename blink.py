@@ -18,23 +18,25 @@ from adafruit_is31fl3731.charlie_bonnet import CharlieBonnet as Display
 
 i2c = busio.I2C(board.SCL, board.SDA)
 
-# array pattern in bits; top row-> bottom row, 8 bits in each row
-an_arrow = bytearray((0x08, 0x0C, 0xFE, 0xFF, 0xFE, 0x0C, 0x08, 0x00, 0x00))
-
 display = Display(i2c)
 
-offset = (display.width - 8) // 2
+display.sleep(True)  # turn display off while updating blink bits
+display.fill(0)
+
+print(display.__dict__)
+# for y in range(display.height):
+
 
 # first load the frame with the arrows; moves the an_arrow to the right in each
 # frame
-display.sleep(True)  # turn display off while updating blink bits
-display.fill(0)
-for y in range(display.height):
-    row = an_arrow[y]
-    for x in range(8):
-        bit = 1 << (7 - x) & row
-        if bit:
-            display.pixel(x + offset, y, 50, blink=True)
-
-display.blink(1000)  # ranges from 270 to 2159; smaller the number to faster blink
-display.sleep(False)  # turn display on
+# display.sleep(True)  # turn display off while updating blink bits
+# display.fill(0)
+# for y in range(display.height):
+#     row = an_arrow[y]
+#     for x in range(8):
+#         bit = 1 << (7 - x) & row
+#         if bit:
+#             display.pixel(x + offset, y, 50, blink=True)
+#
+# display.blink(1000)  # ranges from 270 to 2159; smaller the number to faster blink
+# display.sleep(False)  # turn display on

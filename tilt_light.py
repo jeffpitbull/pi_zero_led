@@ -52,9 +52,9 @@ def reticle():
         [8,2],
         [7,2]
     ]
-
+    display.fill(0)
     for point in points:
-        display.pixel(*point, 20)
+        display.pixel(*point, 8)
 
 
 def run():

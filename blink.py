@@ -26,12 +26,12 @@ display.fill(0)
 # draw a box on the display
 # first draw the top and bottom edges
 for x in range(display.width):
-    print x
+    print('X is: {}'.format(x))
     display.pixel(x, 0, 50)
     display.pixel(x, display.height - 1, 50)
 # now draw the left and right edges
 for y in range(display.height):
-    print y
+    print('Y is: {}'.format(y))
     display.pixel(0, y, 50)
     display.pixel(display.width - 1, y, 50)
 # for y in range(display.height):

@@ -23,7 +23,17 @@ display = Display(i2c)
 display.sleep(True)  # turn display off while updating blink bits
 display.fill(0)
 
-display.pixel(1, 1, 50)
+# draw a box on the display
+# first draw the top and bottom edges
+for x in range(display.width):
+    print x
+    display.pixel(x, 0, 50)
+    display.pixel(x, display.height - 1, 50)
+# now draw the left and right edges
+for y in range(display.height):
+    print y
+    display.pixel(0, y, 50)
+    display.pixel(display.width - 1, y, 50)
 # for y in range(display.height):
 
 

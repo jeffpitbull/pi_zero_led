@@ -45,11 +45,10 @@ def remap(value, min=0, max=180, new_min = 0, new_max = 7):
 iterations = 0
 while iterations < 250:
     angle_xz, angle_yz = get_inclination(sensor)
-    xz_pixel = remap(angle_xz)
-    yz_pixel = remap(angle_yz, new_max=15)
+    xz_pixel = remap(angle_xz, new_max=15)
+    yz_pixel = remap(angle_yz)
     display.fill(0)
-    display.pixel(xz_pixel, 0, 50)
-    display.pixel(0, yz_pixel, 50)
+    display.pixel(xz_pixel, yz_pixel, 50)
     print("XZ angle = {:6.2f}deg   YZ angle = {:6.2f}deg".format(angle_xz, angle_yz))
     iterations += 1
     time.sleep(0.2)
